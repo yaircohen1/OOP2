@@ -62,7 +62,7 @@ class ImagePost(Post):
     def _new_post(self, owner :User, image_path):
         self.owner = super()._new_post(owner)
         self.image = Image(image_path)
-        owner.get_num_of_posts = owner.get_num_of_posts + 1
+        owner.set_num_of_posts(owner.get_num_of_posts + 1)
         print(self.owner+" posted a picture")
 
     def _show_image(self):
@@ -104,7 +104,7 @@ class SalePost(Post):
     available = False
     sold = False
     #chang to init
-    def _new_post(self, owner :User, password, product_decription :str, product_price :double, collection_point : str):
+    def __init__(self, owner :User, password, product_decription :str, product_price :double, collection_point : str):
         self.owner = super()._new_post(owner)
         self.product_price = product_price
         self.collection_point = collection_point
