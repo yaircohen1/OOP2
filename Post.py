@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from numpy import double
 from ex_2 import User
 from PIL import Image as PILImage
@@ -6,7 +5,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 
-class PostFactory(ABC):
+class PostFactory:
 
             def _creat_post(self, user, post_type: str, *args):
                 if post_type == "TextPost":
@@ -63,7 +62,7 @@ class ImagePost(Post):
         self.owner = super()._new_post(owner)
         self.image = Image(image_path)
         owner.set_num_of_posts(owner.get_num_of_posts + 1)
-        print(self.owner+" posted a picture")
+        print(self.owner.user_name+" posted a picture")
 
     def _show_image(self):
         img = self.image._load_image()
@@ -73,10 +72,6 @@ class ImagePost(Post):
             plt.title('Image Post')
             plt.axis('off')
             plt.show()
-
-    def __str__(self):
-        print("user "+self.user+"Posted an ImagePost ", self.image_path)
-
 
     def __str__(self):
         print("user "+self.user+", publish an ImagePost ." ,"location pic"+self.path)
