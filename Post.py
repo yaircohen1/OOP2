@@ -1,9 +1,7 @@
 from abc import abstractmethod
-from numpy import double
-from User import *
-from PIL import Image as PILImage
-import matplotlib
 import matplotlib.pyplot as plt
+from PIL import Image as PILImage
+
 
 class Post:
     def __init__(self, owner):
