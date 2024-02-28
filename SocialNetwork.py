@@ -51,6 +51,8 @@ class SocialNetwork:
 
     def __str__(self):
         tmp = (self.network_name+" social network:\n")
-        for user in self.users:
-            tmp+=user.__str__()+"\n"
+        if self.users:
+            for i in range(len(self.users) - 1):
+                tmp+=self.users[i].__str__() +"\n"
+            tmp += self.users[-1].__str__()  # Append the last user without newline
         return tmp
